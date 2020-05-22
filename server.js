@@ -20,10 +20,8 @@ io.sockets.on('connection',
     // When this user emits, client side: socket.emit('otherevent',some data);
     socket.on('state',
       function(data) {
-        // Data comes in as whatever was sent, including objects
-        console.log("Received: 'state' " + data.x + " " + data.y + " " + data.status);
+        console.log("Received: 'state' " + data.y + " " + data.status);
       
-        // Send it to all other clients
         socket.broadcast.emit('state', data);
         
         // This is a way to send to everyone including sender
